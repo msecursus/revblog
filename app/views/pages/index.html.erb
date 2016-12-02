@@ -15,7 +15,12 @@
                 <div class="col-md-4" style="color:black;">
                     <h2>Recent Posts</h2>
                     <div class="well">
-                        bb
+                        <% @articles.each do |a| %>
+                        <p><%= a.user.username %></p>
+                        <strong style="background:gray; padding:5px;"><%= link_to a.title, a %></strong>
+                        <p style="background:gray;"><%= truncate(a.body) %></p> 
+                        <% end  %>
+                        <%= link_to "Create article", new_article_path %>
                     </div>
                 </div>
             </div>
